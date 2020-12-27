@@ -1,11 +1,16 @@
+# Workflow Name
 name: Actions Test CI
 
+# Workflow Action
 on: [push]
 
+# Workflow Job
 jobs:
-  pre_test:
-    name: Pre-Test CI
+  pre_test_ubuntu:
+
+    name: Pre-Test CI (Ubuntu)
     runs-on: ubuntu-latest
+
     steps:
       - name: Single Line Script
         run: echo "Pre-Test Github Actions Step"
@@ -13,4 +18,21 @@ jobs:
         run: |
           node -v
           npm -v
-    
+      - name: Python Script
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+
+  pre_test_windows:
+
+    name: Pre-Test CI (Windows)
+    needs: ["pre_test_ubuntu"]
+    runs-on: windows-latest
+
+    steps:
+      - name: Directory PS
+        run: Get-Location
+      - name: Directory bash
+        run: pwd
+        shell: bash
