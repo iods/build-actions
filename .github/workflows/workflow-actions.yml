@@ -1,0 +1,16 @@
+# Workflow Name
+name: Actions CI
+
+on: [push]
+
+jobs:
+  github_actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JS Action
+        id: js
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Developer
+      - name: JS Action Time
+        run: echo "{{ steps.js.outputs.time}}"
