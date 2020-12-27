@@ -1,0 +1,16 @@
+name: Actions Test CI
+
+on: [push]
+
+jobs:
+  pre_test:
+    name: Pre-Test CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Single Line Script
+        run: echo "Pre-Test Github Actions Step"
+      - name: Multi-line Script
+        run: |
+          node -v
+          npm -v
+    
