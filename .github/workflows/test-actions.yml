@@ -1,0 +1,32 @@
+# Workflow Name
+name: Actions CI
+
+# Workflow Action/Event/Trigger
+on: [push]
+
+# Workflow Jobs
+jobs:
+
+  github_actions:
+
+    name: Test Actions CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: JS List Files (pre-checkout)
+        run: |
+          pwd
+          ls -la
+      - name: JS Checkout
+        uses: actions/checkout@v1
+      - name: JS List Files (post-checkout)
+        run: |
+          pwd
+          ls -la
+      - name: JS Action
+        id: js
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Developer
+      - name: JS Action Time
+        run: echo "{{ steps.js.outputs.time }}"
