@@ -1,0 +1,24 @@
+#
+# Actions - CI/CD Workflows
+#
+name: Environment [ENV] Variables
+on: push
+
+env:
+  GLOBAL_VAR: Available to all jobs
+  GLOBAL_VARIABLE: Also available to all jobs
+
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+    env:
+      JOB_VAR: Available to all steps in log-env job
+    steps:
+      - name: Log ENV Variables
+        env:
+          STEP_VAR: Available to the Log ENV Variables step
+        run: |
+          echo "GLOBAL_VAR: ${GLOBAL_VAR}"
+          echo "GLOBAL_VARIABLE: ${GLOBAL_VARIABLE}"
+          echo "JOB_VAR: ${JOB_VAR}"
+          echo "STEP_VAR: ${STEP_VAR}"
