@@ -22,3 +22,29 @@ jobs:
           echo "GLOBAL_VARIABLE: ${GLOBAL_VARIABLE}"
           echo "JOB_VAR: ${JOB_VAR}"
           echo "STEP_VAR: ${STEP_VAR}"
+      - name: Log ENV Variables [2]
+        run: |
+          echo "GLOBAL_VAR: ${GLOBAL_VAR}"
+          echo "GLOBAL_VARIABLE: ${GLOBAL_VARIABLE}"
+          echo "JOB_VAR: ${JOB_VAR}"
+          echo "STEP_VAR: ${STEP_VAR}"
+
+  default-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Default ENV Variables
+        run: |
+          echo "HOME: ${HOME}"
+          echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+          echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
+          echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
+          echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
+          echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
+          echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
+          echo "GITHUB_SHA: ${GITHUB_SHA}"
+          echo "GITHUB_REF: ${GITHUB_REF}"
+          echo "GLOBAL_VAR: ${GLOBAL_VAR}"
+          echo "GLOBAL_VARIABLE: ${GLOBAL_VARIABLE}"
+          echo "JOB_VAR: ${JOB_VAR}"
+          echo "STEP_VAR: ${STEP_VAR}"
